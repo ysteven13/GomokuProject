@@ -1,7 +1,7 @@
 import java.util.ArrayList;
 
-public class AlphaBetaSearch extends Gomoku{
-    int maxDepth = 100;
+public class AlphaBetaSearch extends Gomoku {
+    final int maxDepth = 3;
     point bestMove;
     point[][] gameState;
 
@@ -57,7 +57,7 @@ public class AlphaBetaSearch extends Gomoku{
         }
         for (point move : moves) {
             doMove(move,gameState);
-            int value = min(depth - 1, alpha, beta);
+            int value = getMin(depth - 1, alpha, beta);
             undoMove(gameState);
             if (value > alpha) {
                 alpha = value;
@@ -98,7 +98,7 @@ public class AlphaBetaSearch extends Gomoku{
         }
         for (point move : moves) {
             doMove(move,gameState);
-            int value = max(depth - 1, alpha, beta);
+            int value = getMax(depth - 1, alpha, beta);
             undoMove(gameState);
             if (value < beta) {
                 beta = value;

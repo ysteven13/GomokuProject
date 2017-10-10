@@ -1,7 +1,7 @@
 import processing.core.*;
 
 import java.util.*;
-public class Gomoku extends PApplet {
+public class Gomoku extends PApplet{
     //////
     int heightBoard = 15;
     int widthBoard = 15;
@@ -16,6 +16,13 @@ public class Gomoku extends PApplet {
     public ArrayList<point> moves = new ArrayList<>(); //history of moves;
     int rowLength = 5;
     //////
+    class point {
+        int x; int y; int value; int turn;
+        public point(int x, int y){
+            this.x = x;
+            this.y = y;
+        }
+    }
     public static void main(String... args) {
         PApplet.main("Gomoku");
         Scanner scnr = new Scanner(System.in);
@@ -120,7 +127,7 @@ public class Gomoku extends PApplet {
         grid[m.x][m.y].value = 0;
         currentPlayer = -currentPlayer;
     }
-    public int evaluate(point[][] grid) {
+     public int evaluate(point[][] grid) {
         int score = 0;
         for (int player = -1; player <= 1; player += 2) {
             for (int y = 0; y < heightBoard; y++) {
@@ -172,11 +179,5 @@ public class Gomoku extends PApplet {
         }
         return score;
     }
-    class point {
-        int x; int y; int value; int turn;
-        public point(int x, int y){
-            this.x = x;
-            this.y = y;
-        }
-    }
+
 }
