@@ -127,7 +127,8 @@ public class Gomoku extends PApplet{
         grid[m.x][m.y].value = 0;
         currentPlayer = -currentPlayer;
     }
-     public int evaluate(point[][] grid) {
+     public int evaluate(point[][] grid) {//I don't remember how this works
+         //TODO: figure out how this works again
         int score = 0;
         for (int player = -1; player <= 1; player += 2) {
             for (int y = 0; y < heightBoard; y++) {
